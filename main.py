@@ -56,18 +56,17 @@ def parse_input():
     parser = argparse.ArgumentParser(description="program create bitlink from URL or show statisticks for bitlink")
     parser.add_argument("link", help="pass URL or bitlink")
     args = parser.parse_args()
-    print(args.link)
+    return args.link
 
 
 def main():
     # "http://bit.ly/2TgAkTE" -> https://google.com
     token = os.getenv("BITLY_TOKEN")
-    lnk = get_user_input()
+    lnk = parse_input()
     result = shorten(lnk, token) or clicks(lnk, token) or None
     result = result if result else 'Your link "{}" is wrong. Try again'.format(lnk)
     print(result)
 
 
 if __name__ == '__main__':
-    # main()
-    parse_input()
+    main()
