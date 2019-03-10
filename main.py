@@ -46,7 +46,7 @@ def clicks(bitlink, token, additional_parameters=None):
 
 
 def parse_input_from_command_line():
-    parser = argparse.ArgumentParser(description="program create bitlink from URL or show statisticks for bitlink")
+    parser = argparse.ArgumentParser(description="program create bitlink from URL or show statistics for bitlink")
     parser.add_argument("link", help="pass URL or bitlink")
     args = parser.parse_args()
     return args.link
