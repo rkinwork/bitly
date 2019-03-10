@@ -5,8 +5,6 @@ import argparse
 import requests
 from dotenv import load_dotenv
 
-load_dotenv()
-
 
 def get_authorization_headers(token):
     return {
@@ -61,6 +59,7 @@ def parse_input_from_command_line():
 
 def main():
     # "http://bit.ly/2TgAkTE" -> https://google.com
+    load_dotenv()
     token = os.getenv("BITLY_TOKEN")
     http_link = parse_input_from_command_line()
     bitlink_from_http_link = shorten(http_link, token)
