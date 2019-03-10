@@ -52,7 +52,7 @@ def get_user_input():
     return input()
 
 
-def parse_input():
+def parse_input_from_command_line():
     parser = argparse.ArgumentParser(description="program create bitlink from URL or show statisticks for bitlink")
     parser.add_argument("link", help="pass URL or bitlink")
     args = parser.parse_args()
@@ -62,10 +62,12 @@ def parse_input():
 def main():
     # "http://bit.ly/2TgAkTE" -> https://google.com
     token = os.getenv("BITLY_TOKEN")
-    lnk = parse_input()
-    result = shorten(lnk, token) or clicks(lnk, token) or None
-    result = result if result else 'Your link "{}" is wrong. Try again'.format(lnk)
-    print(result)
+    http_link = parse_input_from_command_line()
+    bitlink_from_http_link = shorten(http_link, token)
+    bitlink_statistics = clicks(http_link, token)
+    error_message = 'Your link "{}" is wrong. Try again'.format(http_link)
+    output = bitlink_from_http_link or bitlink_statistics or error_message
+    print(output)
 
 
 if __name__ == '__main__':
