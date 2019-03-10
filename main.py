@@ -1,3 +1,4 @@
+import sys
 import os
 import re
 import argparse
@@ -47,9 +48,14 @@ def clicks(bitlink, token, additional_parameters=None):
 
 def parse_input_from_command_line():
     parser = argparse.ArgumentParser(description="program create bitlink from URL or show statistics for bitlink")
-    parser.add_argument("link", help="pass URL or bitlink")
+    parser.add_argument("link", nargs='?', help="pass URL or bitlink")
     args = parser.parse_args()
-    return args.link
+    if args.link:
+        return args.link
+    elif not sys.stdin.isatty():
+        return sys.stdin.read().rstrip(' \n\r')
+    else:
+        parser.print_help()
 
 
 def main():

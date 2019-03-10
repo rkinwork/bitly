@@ -27,6 +27,11 @@ $ python3 main.py http://google.com
 http://bit.ly/2IGA2RF
 ```
 
+```bash
+echo 'https://devman.org' | python3 main.py
+http://bit.ly/2TKc5x4
+```
+
 Caveat: script shortens only the URLs with specified protocol
 
 These will shorten:
@@ -55,6 +60,13 @@ or
 
 ```bash
 $ python3 main.py bit.ly/2IGA2RF
+56
+```
+
+or
+
+```bash
+echo 'bit.ly/2IGA2RF' | python3.6 main.py
 56
 ```
 
