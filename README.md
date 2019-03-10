@@ -8,8 +8,8 @@ via same interface
 Python3 should be already installed. This script tested and run on `Python==3.7`
  
 Then use `pip` (or `pip3`, if there is a conflict with Python2) to install dependencies:
-```
-pip install -r requirements.txt
+```console
+foo@bar:~$ pip install -r requirements.txt
 ```
 
 Before run script 
@@ -22,51 +22,32 @@ or create `.env` file in the root folder according [python-dotenv](https://pypi.
 ### How to use
 
 #### How to shorten URL
-```bash
-$ python3 main.py http://google.com
+```console
+foo@bar:~$ python3 main.py http://google.com
 http://bit.ly/2IGA2RF
-```
 
-```bash
-echo 'https://devman.org' | python3 main.py
+foo@bar:~$ echo 'https://devman.org' | python3 main.py
 http://bit.ly/2TKc5x4
 ```
 
 Caveat: script shortens only the URLs with specified protocol
 
-These will shorten:
-```
-https://devman.org
-http://google.com
-```
+These will shorten: `https://devman.org` `http://google.com`
 
-These __will not__:
-```
-devman.org
-google.com
-```
-
+These __will not__: `devman.org` `google.com`
 
 #### How to get clicks statistics
 
 Pass bitlink to the script like you did in shorten URL step
 
-```bash
-$ python3 main.py https://bit.ly/2IGA2RF
+```console
+foo@bar:~$ python3 main.py https://bit.ly/2IGA2RF
 56
-```
 
-or
-
-```bash
-$ python3 main.py bit.ly/2IGA2RF
+foo@bar:~$ python3 main.py bit.ly/2IGA2RF
 56
-```
 
-or
-
-```bash
-echo 'bit.ly/2IGA2RF' | python3.6 main.py
+foo@bar:~$ echo 'bit.ly/2IGA2RF' | python3.6 main.py
 56
 ```
 
